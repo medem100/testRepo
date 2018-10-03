@@ -1,4 +1,4 @@
-package org.andre.hellorestful;
+package org.andre.rest;
 
 import java.text.ParseException;
 import java.util.Date;
@@ -11,7 +11,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 
 
-@Path("/hello")
+@Path("/setInfo")
 public class DataPull {
  
 	@GET
