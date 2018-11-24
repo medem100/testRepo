@@ -5,15 +5,15 @@ import java.util.ArrayList;
 import org.json.JSONObject;
 
 public final class utils {
-	private static JSONObject message;
+	private static JSONObject currentMessage = null;
 	
 	
 	public static void organisMessage(JSONObject message) {
-		message = message;
+		currentMessage = message;
 	}
 	
 	public static JSONObject getCurrentMessage() {
-		return message;
+		return currentMessage;
 	}
 
 }

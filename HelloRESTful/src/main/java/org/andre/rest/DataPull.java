@@ -1,16 +1,15 @@
 package org.andre.rest;
 
-import org.andre.util.utils;
-import java.text.ParseException;
-import java.util.Date;
-import java.util.Random;
+import javax.ws.rs.core.MediaType;
 
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 
+import org.andre.util.utils;
 import org.json.JSONObject;
 
 
@@ -29,10 +28,21 @@ public class DataPull {
 	
 	@GET
 	@Path("/currentMessage")
-	public Response getCurrentMesseg() {
+	public String getCurrentMesseg() {
 		String currentMessage = utils.getCurrentMessage().toString();
- 		return Response.status(200).tag(currentMessage).build();
+ 		return currentMessage;
  
 	}
+	
+	  @POST
+	  @Path("/send")
+      @Consumes(MediaType.APPLICATION_JSON)
+      public Response consumeJSON( JSONObject student ) {
+              String output = student.toString();
+	          return Response.status(200).entity(output).build();
+	 
+	      }
+
+	
 }
  
